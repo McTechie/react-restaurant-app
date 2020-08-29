@@ -1,13 +1,7 @@
-import React, {Component} from 'react';
-import {Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle} from 'reactstrap';
+import React from 'react';
+import {Card, CardImg, CardText, CardBody, CardTitle} from 'reactstrap';
 
-class DishDetail extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
-  renderDish(dish) {
+  function RenderDish({dish}) {
     if (dish!=null) {
       return(
         <Card>
@@ -21,7 +15,7 @@ class DishDetail extends Component {
     } else {return <div></div>}
   }
 
-  renderComments(comments) {
+  function RenderComments({comments}) {
     if (comments!=null) {
       return (
         <div>
@@ -49,20 +43,21 @@ class DishDetail extends Component {
     }
   }
 
-  render() {
-    return(
-      <div className="container">
-        <div className="row">
-          <div className="col-12 col-md-5 m-1">
-            {this.renderDish(this.props.dish)}
-          </div>
-          <div list-unstyled className="col-12 col-md-5 m-1">
-            {this.renderComments(this.props.dish ? this.props.dish.comments : null)}
+  const  DishDetail = (props) => {
+    if (props.dish != null){
+      return(
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-md-5 m-1">
+              <RenderDish dish={props.dish} />
+            </div>
+            <div list-unstyled className="col-12 col-md-5 m-1">
+              <RenderComments comments={props.dish.comments} />
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {return <div></div>}
   }
-}
 
 export default DishDetail;
