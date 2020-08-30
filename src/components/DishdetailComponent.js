@@ -2,20 +2,20 @@ import React from 'react';
 import {Card, CardImg, CardText, CardBody, CardTitle} from 'reactstrap';
 
   function RenderDish({dish}) {
-    if (dish!=null) {
-      return(
-        <Card>
-          <CardImg width="100%" src={dish.image} alt={dish.name} />
-          <CardBody>
-            <CardTitle>{dish.name}</CardTitle>
-            <CardText>{dish.description}</CardText>
-          </CardBody>
-        </Card>
-      );
-    } else {return <div></div>}
+    console.log("Dishdetail RenderDish function is invoked");
+    return(
+      <Card>
+        <CardImg width="100%" src={dish.image} alt={dish.name} />
+        <CardBody>
+          <CardTitle>{dish.name}</CardTitle>
+          <CardText>{dish.description}</CardText>
+        </CardBody>
+      </Card>
+    );
   }
 
   function RenderComments({comments}) {
+    console.log("Dishdetail RenderComments function is invoked");
     if (comments!=null) {
       return (
         <div>
@@ -34,16 +34,11 @@ import {Card, CardImg, CardText, CardBody, CardTitle} from 'reactstrap';
           </ul>
         </div>
       );
-    }
-
-    else{
-      return (
-        <div></div>
-      );
-    }
+    } else {return <div></div>}
   }
 
   const  DishDetail = (props) => {
+    console.log("DishDetail Component received \"dish\" as props");
     if (props.dish != null){
       return(
         <div className="container">
@@ -51,7 +46,7 @@ import {Card, CardImg, CardText, CardBody, CardTitle} from 'reactstrap';
             <div className="col-12 col-md-5 m-1">
               <RenderDish dish={props.dish} />
             </div>
-            <div list-unstyled className="col-12 col-md-5 m-1">
+            <div className="col-12 col-md-5 m-1">
               <RenderComments comments={props.dish.comments} />
             </div>
           </div>

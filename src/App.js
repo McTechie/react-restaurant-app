@@ -5,6 +5,7 @@ import './App.css';
 class App extends Component {
 
   render() {
+    console.log("App render() is invoked");
     return (
       <div className="App">
         <Main />

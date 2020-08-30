@@ -2,6 +2,7 @@ import React from 'react';
 import {Card, CardImg, CardImgOverlay, CardTitle} from 'reactstrap';
 
   function RenderMenuItem({dish, onClick}) {
+    console.log("RenderMenuItem function invoked after mapping");
     return(
       <Card onClick={() => onClick(dish.id)}>
         <CardImg width="100%" src={dish.image} alt={dish.name} />
@@ -21,7 +22,7 @@ import {Card, CardImg, CardImgOverlay, CardTitle} from 'reactstrap';
       );
     });
 
-    console.log("Menu Component render() is invoked");
+    console.log("Menu Component received \"dishes\" as props and maps with RenderMenuItem function");
 
     return (
       <div className="container">
