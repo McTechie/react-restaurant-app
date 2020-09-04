@@ -27,7 +27,6 @@ class Main extends Component {
   }
 
   render() {
-    console.log("Main Component render() is invoked");
     const HomePage = () => {
       return(
         <Home dish={this.props.dishes.filter((dish) => dish.featured)[0]}
