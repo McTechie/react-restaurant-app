@@ -76,15 +76,8 @@ class CommentForm extends Component{
       isModalOpen: false
     };
 
-    this.toggleComment = this.toggleComment.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.handleComment = this.handleComment.bind(this);
-  }
-
-  toggleComment() {
-    this.setState({
-      isCommentOpen: !this.state.isCommentOpen
-    });
   }
 
   toggleModal() {
