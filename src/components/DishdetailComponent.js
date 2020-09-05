@@ -108,10 +108,11 @@ class CommentForm extends Component{
           <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
           <ModalBody>
             <LocalForm onSubmit={(values) => this.handleComment(values)}>
+
               <Row className="form-group">
-                <Label htmlFor="Range" md={12}><b>Range</b></Label>
+                <Label htmlFor="rating" md={12}><b>Range</b></Label>
                 <Col md={{size: 12}}>
-                  <Control.select model=".range" className="form-control" name="Range">
+                  <Control.select model=".range" className="form-control" name="rating">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -120,19 +121,23 @@ class CommentForm extends Component{
                   </Control.select>
                 </Col>
               </Row>
+
               <Row className="form-group">
-                <Label htmlFor="name" md={12}><b>Your Name</b></Label>
+                <Label htmlFor="author" md={12}><b>Your Name</b></Label>
                 <Col md={12}>
-                  <Control.text model=".name" className="form-control" id="name" name="name" placeholder="Your Name" validators={{ required, minLength: minLength(3), maxLength: maxLength(15) }} />
-                  <Errors className="text-danger" model=".name" show="touched" messages={{ required: 'Required!', minLength: ' Must be greater than 2 characters', maxLength: ' Must be 15 characters or less' }} />
+                  <Control.text model=".author" className="form-control" id="author" name="author" placeholder="Your Name" validators={{ required, minLength: minLength(3), maxLength: maxLength(15) }} />
+                  <Errors className="text-danger" model=".author" show="touched" messages={{ required: 'Required!', minLength: ' Must be greater than 2 characters!', maxLength: ' Must be 15 characters or less!' }} />
                 </Col>
               </Row>
+
               <Row className="form-group">
-                <Label htmlFor="message" md={12}><b>Comment</b></Label>
+                <Label htmlFor="comment" md={12}><b>Comment</b></Label>
                 <Col md={12}>
-                  <Control.textarea model=".message"  id="message" name="message" rows="6" className="form-control" />
+                  <Control.textarea model=".comment" id="comment" name="comment" rows="6" className="form-control" validators={{ required, minLength: minLength(10) }} />
+                  <Errors className="text-danger" model=".comment" show="touched" messages={{ required: 'Required!', minLength: ' Must be at least 10 characters long!' }} />
                 </Col>
               </Row>
+
               <Button type="submit" value="submit" color="primary">Submit</Button>
             </LocalForm>
           </ModalBody>
