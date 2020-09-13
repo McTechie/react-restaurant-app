@@ -1,7 +1,7 @@
 import React from 'react';
 import {Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media} from 'reactstrap';
 import {Link} from 'react-router-dom';
-import {baseUrl} from '../shared/baseUrl';
+import {baseUrl} from '../shared/baseUrl'; /* For use with server, src = {baseUrl + item.image} */
 import {FadeTransform} from 'react-animation-components';
 
 /* First implementation of RenderLeader() */
@@ -37,7 +37,7 @@ function RenderLeader({leader}) {
         }}>
         <Media tag="li">
           <Media left middle>
-              <Media object src={baseUrl + leader.image} alt={leader.name} />
+              <Media object src="assets/images/alberto.png" alt={leader.name} />
           </Media>
           <Media body className="ml-5 col-12">
             <Media heading>{leader.name}</Media>
