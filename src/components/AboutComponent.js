@@ -37,7 +37,7 @@ function RenderLeader({leader}) {
         }}>
         <Media tag="li">
           <Media left middle>
-              <Media object src = {baseUrl + item.image} alt={leader.name} />
+              <Media object src = {baseUrl + leader.image} alt={leader.name} />
           </Media>
           <Media body className="ml-5 col-12">
             <Media heading>{leader.name}</Media>
